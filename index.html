@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Exemple html css js - 0822</title>
+  
+
+  <!-- 
+  	pas encore utilisé, on a mis pour l'instant le css dans le fichier html au travers d'une balise style
+  	<link rel="stylesheet" href="style.css"> -->
+  
+  <!-- appeler le script jquery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<!-- des balises classiques : briques -->
+<p> une brique de html de type <strong>paragraphe</strong></p>
+
+<center>
+
+	<a href="https://www.free-css.com/template-categories/portfolio" alt="" title="text au survol">un example de lien</a>
+
+	<p class="special"> es ce que tu as le doit de boire ? </p>	
+
+	<!-- balise qui va recevoir le calc du javascript -->
+	Jour :<div id="reponse_age"></div>
+
+	nb de premiers entiers :<div id="reponse_entier"></div>
+
+
+	<button id="calcDateBtn">Calcul la date</button>
+	
+	<!-- saut de ligne	 -->
+	<br/>
+	<br/>
+	<br/>
+	
+	<button id="calcEntiersBtn">Calcul entiers</button>
+	
+	<br/>
+	<br/>
+	<br/>
+
+	<!-- des balises auto fermantes -->
+	<img src="https://avatars.githubusercontent.com/u/1768831?v=4">
+
+
+
+
+</center>
+
+
+
+<!-- la peinture -->
+<style type="text/css">
+	
+	p.special{
+		background-color: teal;
+	}
+
+	img{		
+		width: 10%;
+	}
+
+</style>
+
+
+
+<!-- plus bas mon script custom -->
+
+
+<!-- l'animation, ça bouge, manipuler les balises -->
+<script type="text/javascript">
+	
+	// $(document).ready - > fonction de jquery pour démarrer un script js dans une page
+	$(document).ready(function(){
+		
+		// on definit une fonction 
+		function calcDate(parametre){
+			
+			var currentDate = new Date();
+
+			if(parametre == true){
+				
+				var currentDay = currentDate.getDate();
+
+			} else{
+
+				var currentDay = "pas de date";
+			}
+				
+		 	$('#reponse_age').append( currentDay );
+		}
+
+
+
+		// une fonction pour calculer et utiliser la boucle for
+		function claclNPremierEntier(nb){
+
+			var nb;
+
+			var cpt = 0;
+			
+
+			for (var i = 0 ; i <= nb  ; i++ ) {
+
+				console.log("cpt : "+cpt);
+				
+				cpt = cpt + i;
+			}
+
+			// on ajouter dans le html la réponse du calcul
+			$('#reponse_entier').append( cpt );
+		}	
+
+		
+
+				
+
+		// quand on clic sur le bouton avec l'id calcDateBtn
+		$('#calcDateBtn').click(function() {
+
+			// ici on appelle une fonction avec un parametre 
+			calcDate( true );
+
+			
+
+
+		});
+
+		// on attend un evenement de clic sur la balise avec l'id : calcEntiersBtn
+		$('#calcEntiersBtn').click(function(){
+
+			//on demande à l'utilisateur qqch pour l'inserer dans une variable
+			var chiffre = prompt("Donne moi un chiffre");
+
+			// on appel la fonction avec un parametre
+			claclNPremierEntier(chiffre);
+
+		});
+
+		
+	});
+
+
+
+</script>
+</body>
+</html>
+
