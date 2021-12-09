@@ -131,7 +131,11 @@
 			calcDate( true );
 
 
-			$('#imgMoi').hide();
+			$('#imgMoi').hide( "slow", function() {
+				//instruction quand l'animation est terminé
+				console.log( "Animation complete." );
+				
+			});
 			
 
 
